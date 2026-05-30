@@ -1,0 +1,100 @@
+/* Container: Forced 5-Column Grid */
+.brand-container {
+    display: grid;
+    /* Force 5 columns on desktop, maintain spacing */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+
+/* The Card: Adjusted for 5-column layout */
+.brand-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 20px; /* Slightly tighter radius for smaller cards */
+    padding: 20px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 210px; /* Adjusted height to look good in 5 columns */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* Interactive Hover: Lift + Shadow */
+.brand-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: #ffffff;
+}
+
+/* Image: Vibrant & Centered */
+.brand-image {
+    width: 95%;
+    height: 95px; /* Scaled down slightly to fit 5 columns */
+    object-fit: contain;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05));
+    opacity: 1; /* Always full color */
+}
+
+.brand-card:hover .brand-image {
+    transform: scale(1.1);
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.1));
+}
+
+/* Typography: Optimized for 5 columns */
+.brand-name {
+    margin-top: 18px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #232f3e;
+    font-size: 0.85rem; /* Smaller font to ensure names stay on one line */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.brand-card:hover .brand-name {
+    color: #e47911;
+}
+
+/* Decorative Gold Bar */
+.brand-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #e47911;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.brand-card:hover::after {
+    width: 50%; 
+}
+
+/* Responsive: Switch to 2 columns on mobile devices */
+@media (max-width: 992px) {
+    .brand-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en el cel */
+        gap: 10px;
+        padding: 20px 10px;
+    }
+    .brand-card {
+        height: 160px; /* Reducimos la altura para que quepan más en pantalla */
+        padding: 10px;
+    }
+    .brand-image {
+        height: 70px; /* Imagen un poco más pequeña */
+    }
+}

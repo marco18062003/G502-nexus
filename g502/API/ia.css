@@ -1,0 +1,220 @@
+:root { 
+    --primary: #2563eb; 
+    --success: #10b981; 
+    --danger: #ef4444; 
+    --bg: #f8fafc; 
+    --card: #ffffff; 
+    --text: #1e293b; 
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg); 
+    color: var(--text); 
+    margin: 0; 
+    padding: 10px; /* Reducido para móviles */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.container { 
+    width: 100%; 
+    max-width: 900px; 
+}
+
+.header { 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+.header h1 { font-size: 1.5rem; margin-bottom: 5px; }
+
+.card { 
+    background: var(--card); 
+    padding: 20px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); 
+    margin-bottom: 20px; 
+}
+
+/* Botones Responsivos */
+.btn { 
+    padding: 12px; 
+    border-radius: 10px; 
+    border: none; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    text-decoration: none; 
+    text-align: center; 
+    font-size: 14px; 
+    display: inline-block; 
+}
+
+.btn-primary { 
+    background: var(--primary); 
+    color: white; 
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.btn-outline, .btn-copy { 
+    flex: 1; /* Para que midan lo mismo en móvil */
+    padding: 10px; 
+    font-size: 12px; 
+    border: 1px solid;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.btn-outline { border-color: var(--primary); color: var(--primary); }
+.btn-copy { border-color: var(--success); color: var(--success); }
+.btn-copy.copied { background: var(--success); color: white; }
+
+/* Tabla Responsiva */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+thead { display: table-header-group; }
+
+/* Efecto de "Card" en dispositivos móviles */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+    
+    thead tr { 
+        position: absolute; 
+        top: -9999px; 
+        left: -9999px; 
+    }
+    
+    tr { 
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        padding: 10px;
+        background: white;
+    }
+    
+    td { 
+        border: none;
+        padding: 8px 5px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #64748b;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    
+    .btn-group { width: 100%; }
+}
+
+th { 
+    background: #f1f5f9; 
+    padding: 12px; 
+    text-align: left; 
+    font-size: 11px; 
+    text-transform: uppercase; 
+    border-bottom: 2px solid #e2e8f0; 
+}
+
+td { 
+    padding: 12px; 
+    border-bottom: 1px solid #f1f5f9; 
+    font-size: 14px; 
+}
+
+.barcode-container { 
+    margin-top: 10px; 
+    text-align: center; 
+    background: #fff; 
+    padding: 15px; 
+    border: 1px dashed #cbd5e1; 
+    border-radius: 8px; 
+}
+
+.barcode-container svg {
+    max-width: 100%; /* Evita que el código de barras se salga de la pantalla */
+    height: auto;
+}
+
+.badge { 
+    background: #e0e7ff; 
+    color: #4338ca; 
+    padding: 6px 10px; 
+    border-radius: 6px; 
+    font-family: monospace; 
+    font-weight: bold; 
+}
+/* Estilos para el Modal de g502 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+}
+
+.barcode-rotate-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+#barcode {
+    width: 100%;
+    max-height: 120px;
+}
+
+.btn-modal-close {
+    margin-top: 20px;
+    background: #64748b;
+    color: white;
+    width: 100%;
+}
+
+/* Responsividad para la tabla en móviles */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute; top: -9999px; }
+    tr { border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 10px; padding: 10px; background: white; }
+    td { border: none; display: flex; justify-content: space-between; align-items: center; padding: 8px 5px; }
+    td:before { content: attr(data-label); font-weight: bold; color: #64748b; font-size: 11px; }
+    .btn-group { width: 100%; display: flex; gap: 5px; }
+    .btn-group button { flex: 1; }
+}

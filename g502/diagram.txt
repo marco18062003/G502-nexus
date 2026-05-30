@@ -1,0 +1,44 @@
+Length Name
+----                 
+admin /admin_pedidos.php
+
+config/ 0.txt
+	add_to_cart.php
+	carrito.js
+	db.php
+
+Donjorgitofinal/ 
+
+images/
+
+includes/
+
+orders/
+
+pruebas_recicladas/
+
+publico1/ assets/ css/
+		  js/
+	 buscar.php
+	 confirmacion_pedido.php
+	 donjorgito.php
+	 favoritos.php
+	 index.php
+ 	 index1.php
+	 indexme.php
+	 login.php
+	 logout.php
+	 procesar_pedido.php
+	 producto_detalle.php
+	 registro.php
+	 ver_carrito.php
+	
+uploads/
+
+user/
+
+xxx/
+integrales.php
+promoxiones.php
+README.md
+readme.txt

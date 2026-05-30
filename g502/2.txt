@@ -1,0 +1,99 @@
+/*
+ * ==========================================================
+ * CSS FINAL CORREGIDO: Proporción y Responsive
+ * ==========================================================
+ */
+
+/* 1. Proporción de la Miniatura (Siempre 1:1 Cuadrado) */
+.mini-promo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    padding-top: 100%; /* El truco para el cuadrado 1:1 */
+    height: 0; 
+}
+
+
+/* 2. CORRECCIÓN FINAL: Proporción de la Imagen Grande en MÓVIL (1:1 Cuadrado) */
+@media (max-width: 991.98px) {
+    /* Forzamos la proporción más estable para móvil: 1:1 (Cuadrado) */
+    #ofertas-grid-v9 .promo-grande-contenedor {
+        padding-top: 100%; 
+        height: 0;
+    }
+}
+
+
+/* 3. Proporción de la Imagen Grande en DESKTOP (Side-by-side) */
+@media (min-width: 992px) { 
+    
+    /* Obliga a las dos columnas (grande y mini) a tener la misma altura. */
+    #ofertas-grid-v9 {
+        display: flex;
+        align-items: stretch;
+    }
+
+    /* La imagen grande ocupa el 100% de la altura de la columna flex. */
+    #ofertas-grid-v9 .promo-grande-contenedor {
+        height: 100%;
+        padding-top: 0 !important; /* Desactiva el padding de móvil */
+    }
+}
+
+
+/* 4. Estilos Generales (Imágenes, Información y Hover) */
+.mini-promo-item img,
+.promo-grande-contenedor img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Información Estática */
+.mini-info-static {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)); 
+    z-index: 5; 
+    padding: 0.5rem;
+}
+
+/* Overlay al hacer hover */
+.item-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 6; 
+}
+
+/* Efectos al pasar el ratón */
+.promo-link-wrapper:hover .item-hover-overlay {
+    opacity: 1; 
+}
+
+.promo-link-wrapper:hover .promo-imagen {
+    transform: scale(1.05); 
+}
+/* Nuevo CSS para el flujo (¡IMPORTANTE!) */
+/* Asegura que el flujo de la página mantenga el espacio. */
+/* Si tu sección de features es .features, aplica esto */
+
+.features-container { /* Reemplaza .features-container con la clase/ID del elemento padre de .features si existe, o usa .features directamente. */
+    position: relative;
+    z-index: 10; /* Asegura que se vea por encima del carrusel. */
+    margin-bottom: 230px; /* ¡Esto reestablece el flujo! */
+}

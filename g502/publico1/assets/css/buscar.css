@@ -1,0 +1,168 @@
+/* --- DISEÑO g502 --- */
+
+.search-results-heading {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.search-results-heading span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* CONTENEDOR 2 COLUMNAS FORZADO */
+.products-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 12px !important;
+    padding: 10px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-image {
+    width: 100%;
+    height: 140px; /* Ajustado para que quepa bien en 2 columnas */
+    object-fit: contain;
+}
+
+/* CONTROLES DE CANTIDAD COMPACTOS */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%; /* Ocupa el ancho de la columna */
+    max-width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    flex: 1;
+}
+
+.quantity-input {
+    width: 35px;
+    text-align: center;
+    border: none;
+    padding: 5px 0;
+    font-size: 0.9em;
+}
+
+/* BOTÓN AGREGAR */
+.add-to-cart-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    width: 100%;
+    font-weight: bold;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
+}
+.filter-bar-g502 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Una línea sutil en lugar de un cuadro gris */
+}
+
+.filter-info {
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-info i {
+    color: #007bff; /* Color de acento g502 */
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper select {
+    appearance: none; /* Quitamos la flecha fea por defecto */
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Bordes muy redondeados, estilo moderno */
+    padding: 6px 35px 6px 15px;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.select-wrapper select:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.select-wrapper i {
+    position: absolute;
+    right: 12px;
+    font-size: 0.7rem;
+    color: #888;
+    pointer-events: none; /* Para que no estorbe al hacer click */
+}
+
+/* En celulares, hacemos que ocupe todo el ancho si es necesario */
+@media (max-width: 576px) {
+    .filter-bar-g502 {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .filter-actions {
+        width: 100%;
+    }
+    .select-wrapper select {
+        width: 100%;
+    }
+}
+
+/* RESPONSIVO PARA PC */
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    .product-image {
+        height: 200px;
+    }
+}
